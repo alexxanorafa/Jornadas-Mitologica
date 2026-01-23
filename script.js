@@ -10,8 +10,8 @@ function $(selector) {
   return document.querySelector(selector);
 }
 
-function $all(selector) {
-  return Array.from(document.querySelectorAll(selector));
+function $all(selector, root) {
+  return Array.from((root || document).querySelectorAll(selector));
 }
 
 function shuffle(array) {
@@ -82,7 +82,7 @@ if (menuIcon && menu) {
    ============================ */
 
 /*
-  Estrutura comum de carta:
+  Estrutura de carta:
 
   {
     id,
@@ -98,7 +98,7 @@ if (menuIcon && menu) {
   }
 */
 
-// --- Arcanos Maiores (Deuses) – exemplos com campos arquetípicos preenchidos ---
+// --- Arcanos Maiores (Deuses) – exemplos (mantém e expande com o teu conteúdo) ---
 
 const arcanosMaioresDeuses = [
   {
@@ -231,7 +231,7 @@ const arcanosMaioresDeuses = [
     polaridade: "Ambivalente",
     tags: ["coragem", "conflito", "destino", "força"],
   },
-  // ... aqui, na integração final, adicionas todos os outros deuses originais
+  // aqui inseres os restantes deuses do teu deck original
 ];
 
 // --- Arcanos Menores (cenas / situações) – exemplos ---
@@ -741,6 +741,7 @@ function sintetizarTiragem(cartas, padraoPosicoes) {
   };
 
   const eixos = {};
+  const tagsContador = {};
 
   cartas.forEach((carta) => {
     if (contador[carta.polaridade] !== undefined) {
@@ -749,10 +750,18 @@ function sintetizarTiragem(cartas, padraoPosicoes) {
     const eixo = carta.eixoPsicologico;
     if (!eixos[eixo]) eixos[eixo] = 0;
     eixos[eixo] += 1;
+
+    carta.tags.forEach((tag) => {
+      if (!tagsContador[tag]) tagsContador[tag] = 0;
+      tagsContador[tag] += 1;
+    });
   });
 
   const eixoPrincipal = Object.entries(eixos).sort((a, b) => b[1] - a[1])[0];
-  const eixoNome = eixoPrincipal ? eixoPrincipal[0] : "um conjunto de temas diversos";
+  const eixoNome =
+    eixoPrincipal && eixoPrincipal[0]
+      ? eixoPrincipal[0]
+      : "um conjunto de temas diversos";
 
   const luzPct = Math.round((contador.Luz / total) * 100);
   const sombraPct = Math.round((contador.Sombra / total) * 100);
@@ -769,6 +778,13 @@ function sintetizarTiragem(cartas, padraoPosicoes) {
       "A tiragem apresenta um equilíbrio entre luz e sombra, convidando a um olhar que inclua tanto potenciais quanto vulnerabilidades.";
   }
 
+  const tagsOrdenadas = Object.entries(tagsContador).sort((a, b) => b[1] - a[1]);
+  const tagsPrincipais = tagsOrdenadas.slice(0, 3).map(([tag]) => tag);
+  const tagsTexto =
+    tagsPrincipais.length > 0
+      ? ` Entre os temas recorrentes, destacam-se: ${tagsPrincipais.join(", ")}.`
+      : "";
+
   const tipoSintese =
     padraoPosicoes && padraoPosicoes.some((p) => p.tipoEixo === "síntese")
       ? "Em conjunto, estas cartas"
@@ -777,7 +793,7 @@ function sintetizarTiragem(cartas, padraoPosicoes) {
   const texto =
     `${tipoSintese} enfatizam sobretudo o eixo de ${eixoNome.toLowerCase()}, ` +
     `indicando que este é o campo principal de movimento na tua jornada neste momento. ` +
-    `${polarTexto}`;
+    `${polarTexto}${tagsTexto}`;
 
   return texto;
 }
@@ -787,9 +803,9 @@ function sintetizarTiragem(cartas, padraoPosicoes) {
    ============================ */
 
 const AppState = {
-  culturaSelecionada: null, // definida pela Roda da Fortuna
+  culturaSelecionada: null,
   tipoTiragem: 3,
-  modoBaralho: "maiores", // "maiores" | "mistos"
+  modoBaralho: "maiores", // "maiores" | "menores" | "mistos"
   cartasAtuais: [],
   padraoAtual: [],
 };
@@ -863,11 +879,11 @@ function desenharRoda(ctx, width, height, angulo) {
     ctx.textAlign = "right";
     ctx.fillStyle = "#f7f7f7";
     ctx.font = "12px 'Times New Roman', serif";
-    ctx.fillText(cultura.toUpperCase(), radius - 10, 4);
+    ctx.fillText(cultura.toUpperCase(), radius - 12, 4);
     ctx.restore();
   });
 
-  // Indicador topo
+  // Indicador no topo
   ctx.beginPath();
   ctx.moveTo(cx, cy - radius - 8);
   ctx.lineTo(cx + 8, cy - radius - 24);
@@ -883,14 +899,14 @@ function animarRoda() {
   const { width, height } = rodaCanvas;
 
   rodaAngulo += rodaVelocidade;
-  rodaVelocidade *= 0.985; // desaceleração
+  rodaVelocidade *= 0.985;
 
   if (rodaVelocidade < 0.002) {
     rodaGirando = false;
     rodaVelocidade = 0;
 
     const slice = (2 * Math.PI) / culturasOrdem.length;
-    const offset = Math.PI / 2; // indicador no topo
+    const offset = Math.PI / 2;
     let idx = Math.floor(
       ((2 * Math.PI - (rodaAngulo + offset)) % (2 * Math.PI)) / slice
     );
@@ -925,7 +941,6 @@ if (rodaButton && rodaCanvas) {
     rodaGirando = true;
     rodaVelocidade = 0.3 + Math.random() * 0.1;
 
-    // partículas quânticas básicas (classe CSS a ser adicionada em cards layout)
     if (rodaResultado) rodaResultado.textContent = "A roda está em movimento...";
 
     rodaButton.disabled = true;
@@ -953,13 +968,32 @@ if (helpTiragemBtn && helpTiragemModal && helpTiragemFechar) {
   });
 }
 
+const numeralRomanoPorIndex = [
+  "I",
+  "II",
+  "III",
+  "IV",
+  "V",
+  "VI",
+  "VII",
+  "VIII",
+  "IX",
+  "X",
+  "XI",
+  "XII",
+];
+
 if (btnIrParaTiragem && selectNumCartas && selectTipoBaralho) {
   btnIrParaTiragem.addEventListener("click", () => {
     const num = parseInt(selectNumCartas.value, 10);
     const tipoBaralho = selectTipoBaralho.value;
 
-    if (!padroesTiragem[num]) {
-      alert("Tiragem não suportada.");
+    const padrao = padroesTiragem[num];
+    if (!padrao || padrao.length !== num) {
+      console.warn("Padrão de tiragem inconsistente:", num, padrao);
+      alert(
+        "Há um problema de configuração na tiragem selecionada. Tenta outro formato enquanto ajustamos este padrão."
+      );
       return;
     }
 
@@ -974,8 +1008,6 @@ if (btnIrParaTiragem && selectNumCartas && selectTipoBaralho) {
       incluirMenores,
       culturaFoco: AppState.culturaSelecionada,
     });
-
-    const padrao = padroesTiragem[num];
 
     AppState.cartasAtuais = cartas;
     AppState.padraoAtual = padrao;
@@ -1023,8 +1055,33 @@ if (btnIrParaResumo) {
   });
 }
 
+function ajustarLayoutGrelha(n) {
+  if (!spreadGrid) return;
+
+  if (n === 1) {
+    spreadGrid.style.gridTemplateColumns = "repeat(1, minmax(100px, 1fr))";
+  } else if (n === 2) {
+    spreadGrid.style.gridTemplateColumns = "repeat(2, minmax(80px, 1fr))";
+  } else if (n === 3) {
+    spreadGrid.style.gridTemplateColumns = "repeat(3, minmax(80px, 1fr))";
+  } else if (n === 5) {
+    spreadGrid.style.gridTemplateColumns = "repeat(3, minmax(80px, 1fr))";
+  } else if (n === 7) {
+    spreadGrid.style.gridTemplateColumns = "repeat(4, minmax(70px, 1fr))";
+  } else if (n === 9) {
+    spreadGrid.style.gridTemplateColumns = "repeat(3, minmax(80px, 1fr))";
+  } else if (n === 12) {
+    spreadGrid.style.gridTemplateColumns = "repeat(4, minmax(70px, 1fr))";
+  } else {
+    spreadGrid.style.gridTemplateColumns = "repeat(3, minmax(80px, 1fr))";
+  }
+}
+
 function renderSpread(cartas, padrao) {
   if (!spreadGrid) return;
+
+  const n = cartas.length;
+  ajustarLayoutGrelha(n);
 
   spreadGrid.innerHTML = "";
 
@@ -1034,11 +1091,19 @@ function renderSpread(cartas, padrao) {
     cardEl.className = "card-slot card-slot-virada";
     cardEl.setAttribute("data-index", String(index));
     cardEl.setAttribute("type", "button");
+
+    const numeral = numeralRomanoPorIndex[index] || String(index + 1);
+
     cardEl.innerHTML = `
-      <div class="card-back-quantum"></div>
+      <div class="card-quantum-layer">
+        <div class="card-quantum-particle layer1"></div>
+        <div class="card-quantum-particle layer2"></div>
+        <div class="card-quantum-particle layer3"></div>
+      </div>
+      <div class="card-numeral">${numeral}</div>
       <div class="card-label">${pos ? pos.nome : "Carta " + (index + 1)}</div>
     `;
-    // animação quântica via CSS (ex.: .card-back-quantum com keyframes)
+
     cardEl.addEventListener("click", () => {
       focarCarta(index);
     });
@@ -1105,6 +1170,7 @@ const summarySalvar = $("#summary-salvar");
 const summaryVoltarInicio = $("#summary-voltar-inicio");
 
 function gerarResumoNarrativo(cartas, padrao) {
+  if (!cartas || cartas.length === 0 || !padrao) return "";
   const base = sintetizarTiragem(cartas, padrao);
   const detalhes = cartas
     .map((carta, index) => {
