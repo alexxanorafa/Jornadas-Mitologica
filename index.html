@@ -1,100 +1,266 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jornadas Mitológica</title>
-  <meta name="description" content="Runas Celtas - Jogo de Estratégia e Adivinhação">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Jornada Mitológica 2.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <!-- Menu Navegação -->
   <header>
-    <div class="menu-icon" id="menuIcon">
+    <nav aria-label="Menu principal">
+      <button
+        id="menuIcon"
+        class="menu-icon"
+        aria-label="Abrir menu de aplicações"
+        aria-expanded="false"
+        aria-controls="menu"
+        type="button"
+      >
         <span></span>
         <span></span>
         <span></span>
-    </div>
-    <nav class="menu" id="menu">
-        <ul>
-            <!-- Cada item de menu dentro de <li> -->
-          <li><a href="https://alexxanorafa.github.io/Alquimia-dos-Sentimentos/" class="menu-item">Alquimia dos Sentimentos</a></li>
-          <li><a href="https://alexxanorafa.github.io/Almas-Conectadas/" class="menu-item">Almas Conectadas</a></li>
-          <li><a href="https://alexxanorafa.github.io/Aneis_da_Sabedoria/" class="menu-item">Anéis da Sabedoria</a></li>
-          <li><a href="https://alexxanorafa.github.io/ANIMA/" class="menu-item">ANIMA</a></li>
-          <li><a href="https://alexxanorafa.github.io/ANIMA-II/" class="menu-item">ANIMA II</a></li>
-          <li><a href="https://alexxanorafa.github.io/Animais-de-Poder/" class="menu-item">Animais de Poder</a></li>
-          <li><a href="https://alexxanorafa.github.io/Arvore-da-Vida/" class="menu-item">Árvore da Vida</a></li>
-          <li><a href="https://alexxanorafa.github.io/Biblioteca-Onirica/" class="menu-item">Biblioteca Onirica</a></li>
-          <li><a href="https://alexxanorafa.github.io/Buzios/" class="menu-item">Buzios</a></li>
-          <li><a href="https://alexxanorafa.github.io/Cartas-de-Sibila/" class="menu-item">Cartas de Sibila</a></li>
-          <li><a href="https://alexxanorafa.github.io/Do-you-love-me/" class="menu-item">Do you love me?</a></li>
-          <li><a href="https://alexxanorafa.github.io/I-Ching-Virtual/" class="menu-item">I Ching Virtual</a></li>
-          <li><a href="https://alexxanorafa.github.io/Jogo-Didatico-Banco-de-Dados/" class="menu-item">Jogo Didatico Banco de Dados</a></li>
-          <li><a href="https://alexxanorafa.github.io/Jornada-Arquetipica/" class="menu-item">Jornada Arquetípica</a></li>
-          <li><a href="https://alexxanorafa.github.io/Jornadas-Mitologica/" class="menu-item">Jornada Mitológica</a></li>
-          <li><a href="https://alexxanorafa.github.io/Livro-das-Sombras/" class="menu-item">Livro das Sombras</a></li>
-          <li><a href="https://alexxanorafa.github.io/Magia-das-Cores/" class="menu-item">Magia das Cores</a></li>
-          <li><a href="https://alexxanorafa.github.io/Murmurios-do-Destino/" class="menu-item">Murmúrios do Destino</a></li>
-          <li><a href="https://alexxanorafa.github.io/O-Construtor-do-Destino/" class="menu-item">O Construtor do Destino</a></li>
-          <li><a href="https://alexxanorafa.github.io/Oraculo-das-Pedras/" class="menu-item">Oráculo das Pedras</a></li>
-          <li><a href="https://alexxanorafa.github.io/Oraculo-dos-Deuses/" class="menu-item">Oráculo dos Deuses</a></li>
-          <li><a href="https://alexxanorafa.github.io/Oraculo-Numerologico/" class="menu-item">Oráculo Numerológico</a></li>
-          <li><a href="https://alexxanorafa.github.io/Pendulo-Divinatorio/" class="menu-item">Pendulo Divinatorio</a></li>
-          <li><a href="https://alexxanorafa.github.io/Portal-das-Almas/" class="menu-item">Portal das Almas</a></li>
-          <li><a href="https://alexxanorafa.github.io//PROJECT-AETHER/" class="menu-item">PROJECT AETHER</a></li>
-          <li><a href="https://alexxanorafa.github.io/Quantum-Oracle/" class="menu-item">Quantum Oracle</a></li>
-          <li><a href="https://alexxanorafa.github.io/Runas-Celtas/" class="menu-item">Runas Celtas</a></li>
-          <li><a href="https://alexxanorafa.github.io/Runas-Estelares/" class="menu-item">Runas Estelares</a></li>
-          <li><a href="https://alexxanorafa.github.io/Runas-do-Destino/" class="menu-item">Runas Nórdicas</a></li>
-          <li><a href="https://alexxanorafa.github.io/Tabuleiro-Quantico/" class="menu-item">Tabuleiro Quantico</a></li>
-          <li><a href="https://alexxanorafa.github.io/TarodeMarselha/" class="menu-item">Tarô de Marselha</a></li>
-          <li><a href="https://alexxanorafa.github.io/Tasseografia/" class="menu-item">Tasseografia</a></li>
-          <li><a href="https://alexxanorafa.github.io/Tempo_e_Sonhos/" class="menu-item">Tempo e Sonhos</a></li>
-          <li><a href="https://alexxanorafa.github.io/The-Da-Vinci-Code/" class="menu-item">The Da Vinci Code</a></li>
-          <li><a href="https://alexxanorafa.github.io/Velvet-Quantum/" class="menu-item">Velvet Quantum</a></li>
-          <li><a href="https://alexxanorafa.github.io/Vitruvian-Resonance/" class="menu-item">Vitruvian-Resonance/</a></li>
-          <li><a href="https://alexxanorafa.github.io/Whispering-Shadows/" class="menu-item">Whispering Shadows</a></li>
-          <li><a href="https://alexxanorafa.github.io/Whispering-Shadows-2/" class="menu-item">Whispering Shadows 2</a></li>
-          <li><a href="https://alexxanorafa.github.io/Whispering-Shadows-3/" class="menu-item">Whispering Shadows 3</a></li>
-          <li><a href="https://alexxanorafa.github.io/Xamanismo-Animal/" class="menu-item">Xamanismo Animal</a></li>              
+      </button>
+
+      <div id="menu" class="menu" role="dialog" aria-modal="true" aria-labelledby="menuTitle">
+        <h2 id="menuTitle" class="menu-title">Ecossistema Oracular</h2>
+        <ul class="menu-items" id="menuItems">
+          <li data-category="sentiment"><a href="https://alexxanorafa.github.io/Alquimia-dos-Sentimentos/" class="menu-item">Alquimia dos Sentimentos</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Almas-Conectadas/" class="menu-item">Almas Conectadas</a></li>
+          <li data-category="myth"><a href="https://alexxanorafa.github.io/Aneis_da_Sabedoria/" class="menu-item">Anéis da Sabedoria</a></li>
+          <li data-category="sentiment"><a href="https://alexxanorafa.github.io/ANIMA/" class="menu-item">ANIMA</a></li>
+          <li data-category="sentiment"><a href="https://alexxanorafa.github.io/ANIMA-II/" class="menu-item">ANIMA II</a></li>
+          <li data-category="myth"><a href="https://alexxanorafa.github.io/Animais-de-Poder/" class="menu-item">Animais de Poder</a></li>
+          <li data-category="myth"><a href="https://alexxanorafa.github.io/Arvore-da-Vida/" class="menu-item">Árvore da Vida</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Biblioteca-Onirica/" class="menu-item">Biblioteca Onírica</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/Buzios/" class="menu-item">Búzios</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/Cartas-de-Sibila/" class="menu-item">Cartas de Sibila</a></li>
+          <li data-category="sentiment"><a href="https://alexxanorafa.github.io/Do-you-love-me/" class="menu-item">Do you love me?</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/ECO-SAPIENS/" class="menu-item">ECO-SAPIENS</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Entrecamadas-Telepatia-Proposito/" class="menu-item">Entrecamadas</a></li>
+          <li data-category="sentiment"><a href="https://alexxanorafa.github.io/Experiencia-Sensorial/" class="menu-item">Experiência Sensorial</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/I-Ching-Virtual/" class="menu-item">I Ching Virtual</a></li>
+          <li data-category="myth"><a href="https://alexxanorafa.github.io/Jornada-Arquetipica/" class="menu-item">Jornada Arquetípica</a></li>
+          <li data-category="myth"><a href="https://alexxanorafa.github.io/Jornadas-Mitologica/" class="menu-item">Jornada Mitológica</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Livro-das-Sombras/" class="menu-item">Livro das Sombras</a></li>
+          <li data-category="sentiment"><a href="https://alexxanorafa.github.io/Magia-das-Cores/" class="menu-item">Magia das Cores</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/Murmurios-do-Destino/" class="menu-item">Murmúrios do Destino</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/Nexus/" class="menu-item">Nexus</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/O-Construtor-do-Destino/" class="menu-item">O Construtor do Destino</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/Oraculo-das-Pedras/" class="menu-item">Oráculo das Pedras</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/Oraculo-dos-Deuses/" class="menu-item">Oráculo dos Deuses</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/Oraculo-Numerologico/" class="menu-item">Oráculo Numerológico</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/Pendulo-Divinatorio/" class="menu-item">Pêndulo Divinatório</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Portal-das-Almas/" class="menu-item">Portal das Almas</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Potencial-Coletivo/" class="menu-item">Potencial Coletivo</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/PROJECT-AETHER/" class="menu-item">PROJECT AETHER</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Quantum-Oracle/" class="menu-item">Quantum Oracle</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/Runas-Celtas/" class="menu-item">Runas Celtas</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/Runas-Estelares/" class="menu-item">Runas Estelares</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/Runas-do-Destino/" class="menu-item">Runas Nórdicas</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Simulador-Quantico/" class="menu-item">Simulador Quântico</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Tabuleiro-Quantico/" class="menu-item">Tabuleiro Quântico</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/TarodeMarselha/" class="menu-item">Tarô de Marselha</a></li>
+          <li data-category="oracle"><a href="https://alexxanorafa.github.io/Tasseografia/" class="menu-item">Tasseografia</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Tempo_e_Sonhos/" class="menu-item">Tempo e Sonhos</a></li>
+          <li data-category="myth"><a href="https://alexxanorafa.github.io/The-Da-Vinci-Code/" class="menu-item">The Da Vinci Code</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Velvet-Quantum/" class="menu-item">Velvet Quantum</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Vitruvian-Resonance/" class="menu-item">Vitruvian Resonance</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Whispering-Shadows/" class="menu-item">Whispering Shadows</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Whispering-Shadows-2/" class="menu-item">Whispering Shadows 2</a></li>
+          <li data-category="quantum"><a href="https://alexxanorafa.github.io/Whispering-Shadows-3/" class="menu-item">Whispering Shadows 3</a></li>
+          <li data-category="myth"><a href="https://alexxanorafa.github.io/Xamanismo-Animal/" class="menu-item">Xamanismo Animal</a></li>
         </ul>
+      </div>
     </nav>
-</header>
+  </header>
 
-  <!-- Título -->
-  <h1>Jornada Mitológica</h1>
+  <div class="main-shell">
+    <!-- SCREEN 0 – RODA DA FORTUNA -->
+    <section id="screen-wheel" class="screen">
+      <h1>Jornada Mitológica</h1>
+      <h3>Roda da Fortuna Mitológica – escolhe, contigo, a cultura que te chama hoje.</h3>
 
-  <main>
-    <section id="culturas">
-        <h2>Escolha uma Cultura Mitológica</h2>
-        <select id="cultura-select">
-            <option value="grega">Mitologia Grega</option>
-            <option value="egipcia">Mitologia Egípcia</option>
-            <option value="nordica">Mitologia Nórdica</option>
-            <option value="hindu">Mitologia Hindu</option>
-            <option value="japonesa">Mitologia Japonesa</option>
-            <option value="celtica">Mitologia Céltica</option>
-        </select>
-        <button id="draw-button">Sortear um Deus</button>
+      <div class="screen-content">
+        <canvas id="wheel-canvas" aria-label="Roda da Fortuna das culturas mitológicas"></canvas>
+
+        <p id="wheel-result">Clique para iniciar a jornada.</p>
+
+        <div style="margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+          <button id="btn-wheel-spin" class="btn btn-primary" type="button">
+            Iniciar Jornada
+          </button>
+          <button id="btn-wheel-next" class="btn btn-secondary" type="button" onclick="document.dispatchEvent(new Event('jmNextFromWheel'))">
+            Prosseguir para a tiragem
+          </button>
+        </div>
+      </div>
     </section>
 
-    <section id="resultado" class="hidden">
-        <h2>Deus Sorteado</h2>
-        <div id="deus-container"></div>
-        <div id="descricao-container"></div>
-        <button id="voltar">Voltar</button>
-    </section>
-</main>
+    <!-- SCREEN 1 – CONFIGURAÇÃO DA TIRAGEM -->
+    <section id="screen-setup" class="screen hidden">
+      <h2>Escolhe a tiragem</h2>
+      <h3>Define quantas cartas e que camada arquetípica desejas explorar.</h3>
 
-<script src="script.js"></script>
+      <div class="screen-content">
+        <div class="setup-group">
+          <label for="select-num-cartas" class="setup-label">Número de cartas</label>
+          <select id="select-num-cartas" class="setup-select">
+            <option value="1">1 carta – Foco do momento</option>
+            <option value="2">2 cartas – Polaridades</option>
+            <option value="3" selected>3 cartas – Passado / Presente / Potencial</option>
+            <option value="5">5 cartas – Situação / Desafio / Recurso / Sombra / Direção</option>
+            <option value="7">7 cartas – Jornada arquetípica</option>
+            <option value="9">9 cartas – Mandala interior</option>
+            <option value="12">12 cartas – Ciclo expandido</option>
+          </select>
+        </div>
+
+        <div class="setup-group">
+          <label for="select-tipo-baralho" class="setup-label">Tipo de baralho</label>
+          <select id="select-tipo-baralho" class="setup-select">
+            <option value="maiores" selected>Deuses / Arcanos Maiores</option>
+            <option value="menores">Cenas / Arcanos Menores</option>
+            <option value="mistos">Mistos (Maiores + Menores)</option>
+          </select>
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; justify-content: center;">
+          <button id="btn-help-tiragem" class="btn btn-ghost" type="button">
+            ?
+          </button>
+          <button id="btn-ir-tiragem" class="btn btn-primary" type="button">
+            Sortear tiragem
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2 – GRELHA DA TIRAGEM -->
+    <section id="screen-spread" class="screen hidden">
+      <h2>Cartas em jogo</h2>
+      <h3>Explora a disposição e aprofunda o diálogo com cada arquétipo.</h3>
+
+      <div class="screen-content">
+        <div class="spread-grid-wrapper">
+          <div id="spread-grid" aria-label="Grelha de cartas da tiragem"></div>
+        </div>
+
+        <div class="spread-focus">
+          <div class="spread-focus-header">
+            <div id="spread-focus-name">Nome da carta</div>
+            <div id="spread-focus-arquetipo">Arquétipo</div>
+          </div>
+
+          <div class="spread-focus-pergunta" id="spread-focus-pergunta">
+            Pergunta da posição.
+          </div>
+
+          <div class="spread-focus-text" id="spread-focus-texto">
+            Interpretação arquetípica da carta nesta posição.
+          </div>
+
+          <div class="spread-actions">
+            <button id="btn-descricao-completa" class="btn btn-secondary" type="button">
+              Ver mitologia completa
+            </button>
+            <button id="btn-nova-tiragem" class="btn btn-ghost" type="button">
+              Nova tiragem
+            </button>
+            <button id="btn-ir-resumo" class="btn btn-primary" type="button">
+              Ver síntese
+            </button>
+          </div>
+
+          <div class="spread-resumo-wrapper">
+            <strong>Resumo arquetípico da tiragem:</strong>
+            <div id="spread-resumo">
+              A síntese da tiragem será apresentada aqui.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3 – RESUMO / DIÁRIO -->
+    <section id="screen-summary" class="screen hidden">
+      <h2>Síntese da jornada</h2>
+      <h3>Integra a leitura e regista o que ressoa.</h3>
+
+      <div class="screen-content">
+        <div class="summary-block">
+          <div id="summary-texto">
+            A síntese narrativa da tiragem será apresentada aqui.
+          </div>
+
+          <label for="summary-notas" class="summary-notes-label">
+            Notas pessoais (guardadas no teu dispositivo)
+          </label>
+          <textarea id="summary-notas" rows="5"></textarea>
+
+          <div class="summary-actions">
+            <button id="summary-salvar" class="btn btn-secondary" type="button">
+              Guardar notas
+            </button>
+            <button id="summary-voltar-inicio" class="btn btn-primary" type="button">
+              Voltar à Roda
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MODAL: Ajuda sobre tiragens -->
+  <div id="modal-help-tiragem" class="modal-backdrop hidden" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-help-tiragem-titulo">
+      <div class="modal-header">
+        <h3 id="modal-help-tiragem-titulo" class="modal-title">Sobre os tipos de tiragem</h3>
+        <button id="modal-help-tiragem-fechar" class="modal-close" type="button" aria-label="Fechar">
+          ×
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Cada formato de tiragem representa uma forma diferente de mapear a tua jornada:
+        </p>
+        <ul style="margin-top: 8px; padding-left: 16px; font-size: 0.9rem;">
+          <li>1 carta – foco do momento, um único arquétipo em evidência.</li>
+          <li>2 cartas – polaridades e tensões entre dois movimentos internos.</li>
+          <li>3 cartas – linha do tempo: passado, presente e potencial.</li>
+          <li>5 cartas – mapa da situação: cenário, desafio, recurso, sombra e direção.</li>
+          <li>7+ cartas – jornadas mais extensas, para aprofundar camadas da experiência.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Mitologia completa da carta -->
+  <div id="modal-descricao-completa" class="modal-backdrop hidden" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-descricao-titulo">
+      <div class="modal-header">
+        <h3 id="modal-descricao-titulo" class="modal-title">Mitologia e arquétipo</h3>
+        <button id="modal-descricao-fechar" class="modal-close" type="button" aria-label="Fechar">
+          ×
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="modal-descricao-texto">
+          O texto completo da carta será apresentado aqui.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    // Passo da Roda -> Setup, respeitando o estado definido no script.js
+    document.addEventListener('jmNextFromWheel', function () {
+      if (typeof mostrarScreen === 'function') {
+        mostrarScreen('screen-setup');
+      }
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
